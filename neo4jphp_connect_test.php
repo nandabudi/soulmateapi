@@ -1,7 +1,5 @@
 <?php
     require('vendor/autoload.php');
-
+    use everyman\Neo4j\Client;
     $client = new Everyman\Neo4j\Client('localhost', 7474);
-    $client->getTransport()
-      ->setAuth('neo4j', 'neo4j');
-    print_r($client->getServerInfo());
+    print_r($client->getServerInfo());`
