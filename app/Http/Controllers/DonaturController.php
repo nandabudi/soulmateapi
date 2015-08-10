@@ -37,20 +37,20 @@ class DonaturController extends Controller{
     // $client = new Client('localhost', 7474);
     // $client->getTransport()
     //   ->setAuth('neo4j', 'soulmate');
-    // $client = new Client('localhost', 7474);
-    // $client->getTransport()
-    //   ->setAuth('neo4j', 'soulmate');
-    // $label = $client->makeLabel('Muzakki');
-    // $nodes = $label->getNodes();
-    // $status = 'success';
-    // $result = array();
-    // $properties = array();
-    // foreach($nodes as $node){
-    //   $properties['id'] = $node->getId();
-    //   $properties['properties'] = $node->getProperties();
-    //   array_push($result,$properties);
-    // }
-    return response()->json(array('status' => '$status','data' => '$result'));
+    $client = new Client('localhost', 7474);
+    $client->getTransport()
+      ->setAuth('neo4j', 'neo4j');
+    $label = $client->makeLabel('Muzakki');
+    $nodes = $label->getNodes();
+    $status = 'success';
+    $result = array();
+    $properties = array();
+    foreach($nodes as $node){
+      $properties['id'] = $node->getId();
+      $properties['properties'] = $node->getProperties();
+      array_push($result,$properties);
+    }
+    return response()->json(array('status' => $status,'data' => $result));
   }
 
   public function getDonatur($id){
