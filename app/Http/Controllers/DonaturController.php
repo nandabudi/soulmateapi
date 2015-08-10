@@ -37,7 +37,7 @@ class DonaturController extends Controller{
     // $client = new Client('localhost', 7474);
     // $client->getTransport()
     //   ->setAuth('neo4j', 'soulmate');
-    $client = new Client('localhost', 7474);
+    $client = new Everyman\Neo4j\Client('localhost', 7474);
     $client->getTransport()
       ->setAuth('neo4j', 'neo4j');
     $label = $client->makeLabel('Muzakki');
